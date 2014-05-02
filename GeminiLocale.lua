@@ -6,7 +6,7 @@
 -- AceLocale-3.0.lua by Kaelten
 -------------------------------------------------------------------------------
 
-local MAJOR, MINOR = "GeminiLocale-1.0", 2
+local MAJOR, MINOR = "Gemini:Locale-1.0", 2
 local Lib = {}
 
 local assert, tostring, error, pcall = assert, tostring, error, pcall
@@ -89,11 +89,11 @@ local writedefaultproxy = setmetatable({}, {
 --
 -- @usage
 -- -- enUS.lua
--- local L = Apollo.GetPackage("GeminiLocale-1.0").tPackage:NewLocale("TestLocale", "enUS", true)
+-- local L = Apollo.GetPackage("Gemini:Locale-1.0").tPackage:NewLocale("TestLocale", "enUS", true)
 -- L["string1"] = true
 --
 -- -- deDE.lua
--- local L = Apollo.GetPackage("GeminiLocale-1.0").tPackage:NewLocale("TestLocale", "deDE")
+-- local L = Apollo.GetPackage("Gemini:Locale-1.0").tPackage:NewLocale("TestLocale", "deDE")
 -- if not L then return end
 -- L["string1"] = "Zeichenkette1"
 

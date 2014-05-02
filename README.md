@@ -7,16 +7,16 @@ Library for managing localization in addons, allowing for multiple locale to be 
 
 ```lua
 -- enUS.lua
-local L = Apollo.GetPackage("GeminiLocale-1.0").tPackage:NewLocale("MyAddon", "enUS", true)
+local L = Apollo.GetPackage("Gemini:Locale-1.0").tPackage:NewLocale("MyAddon", "enUS", true)
 L["string1"] = true
 
 -- deDE.lua
-local L = Apollo.GetPackage("GeminiLocale-1.0").tPackage:NewLocale("MyAddon", "deDE")
+local L = Apollo.GetPackage("Gemini:Locale-1.0").tPackage:NewLocale("MyAddon", "deDE")
 if not L then return end
 L["string1"] = "Zeichenkette1" 
 
 -- addon.lua
-local L = Apollo.GetPackage("GeminiLocale-1.0").tPackage:GetLocale("MyAddon", true)
+local L = Apollo.GetPackage("Gemini:Locale-1.0").tPackage:GetLocale("MyAddon", true)
 self.wndMain:FindChild("SomeLabel"):SetText(L["string1"])
 ```
 
@@ -35,7 +35,7 @@ When you call GeminiLocale:TranslateWindow, it will look for "Sample String" in 
 
 ```lua
 -- addon.lua
-local GeminiLocale = Apollo.GetPackage("GeminiLocale-1.0").tPackage
+local GeminiLocale = Apollo.GetPackage("Gemini:Locale-1.0").tPackage
 
 self.wndMain = ... -- load your window/form here
 self.wndMain:FindChild("SomeLabel"):SetText("___string1___") -- this can be set when designing the window in Houston.
