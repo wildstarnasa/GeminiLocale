@@ -6,7 +6,7 @@
 -- AceLocale-3.0.lua by Kaelten
 -------------------------------------------------------------------------------
 
-local MAJOR, MINOR = "Gemini:Locale-1.0", 2
+local MAJOR, MINOR = "Gemini:Locale-1.0", 3
 local Lib = {}
 
 local assert, tostring, error, pcall = assert, tostring, error, pcall
@@ -20,15 +20,26 @@ local ktLocales = {
 	[4] = "koKR",
 }
 
--- check the locale.languageId console variable set by the launcher
--- if not found, default to enUS
+-- access to read the locale.languageId console variable has been disabled
+-- check what the Apollo.GetString(1) (aka "Cancel") is translated into and 
+-- return the language locale
 local function GetLocale()
-	return ktLocales[(Apollo.GetConsoleVariable("locale.languageId") or 1)]
+	local strCancel = Apollo.GetString(1)
+	
+	-- German
+	if strCancel == "Abbrechen" then 
+		return ktLocales[2]
+	end
+	
+	-- French
+	if strCancel == "Annuler" then
+		return ktLocales[3]
+	end
+	
+	-- Other
+	return ktLocales[1]
+--	return ktLocales[(Apollo.GetConsoleVariable("locale.languageId") or 1)]
 end
-
--- Note: since the locale is stored as a console variable
--- it can be changed on the fly.  Caching this value will
--- require a reloadui (or equivilient) event to update
 
 Lib.apps = Lib.apps or {}
 Lib.appnames = Lib.appnames or {}
