@@ -6,8 +6,12 @@
 -- AceLocale-3.0.lua by Kaelten
 -------------------------------------------------------------------------------
 
-local MAJOR, MINOR = "Gemini:Locale-1.0", 3
-local Lib = {}
+local MAJOR, MINOR = "Gemini:Locale-1.0", 4
+local APkg = Apollo.GetPackage(MAJOR)
+if APkg and (APkg.nVersion or 0) >= MINOR then
+	return -- no upgrade is needed
+end
+local Lib = APkg and APkg.tPackage or {}
 
 local assert, tostring, error, pcall = assert, tostring, error, pcall
 local getmetatable, setmetatable, rawset, rawget, pairs = getmetatable, setmetatable, rawset, rawget, pairs
